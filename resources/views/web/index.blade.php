@@ -43,7 +43,9 @@
 
             @foreach($blogs as $blog)
             <div class="col-md-6 col-lg-4">
-                <h2>{{ $blog->blog_title }}</h2>
+                <h2><a href="{{ route('blog.show',$blog->id) }}">{{ $blog->blog_title }}</a></h2>
+                <a href=""> <img class="img-fluid" style="width: 400px; height: 400px;"
+                        src="{{ asset('uploads/blog/'.$blog->image) }}" alt=""></a>
                 <p>{{ substr($blog->blog_description,0,50) }}</p>
                 <div class=" mx-auto">
                     <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -51,18 +53,18 @@
                             <i class="fas fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <a href=""> <img class="img-fluid" src="{{ asset('storage/uploads/blog/'.$blog->image) }}"
-                            alt=""></a>
+
                 </div>
             </div>
-
             @endforeach
-
-
         </div>
+        <div class="row">
+            {{ $blogs->links() }}
+        </div>
+
         <!-- /.row -->
 
     </div>
-</section>
 
+</section>
 @include('web.lib.about') @include('web.lib.contact') @endsection

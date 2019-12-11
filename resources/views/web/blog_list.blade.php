@@ -36,10 +36,16 @@
                             <td>{{ $blog->blog_title }}</td>
                             <td>{{ $blog->category->category_name }}</td>
                             <td>{{ $blog->slug }}</td>
-                            <td>{{ substr($blog->blog_description ,0,20) }}</td>
                             <td>
-                                <a href="" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-warning">Delete</a>
+                                {{ substr($blog->blog_description ,0,20) }}
+                            </td>
+                            <td>
+                                <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-primary">
+                                    Edit
+                                </a>
+                                <a href class="btn btn-warning">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                         @endforeach

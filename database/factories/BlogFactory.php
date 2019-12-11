@@ -13,7 +13,7 @@ $factory->define(Blog::class, function (Faker $faker) {
         'category_id' => Category::all()->random(),
         'slug' => Str::slug($faker->text(10)),
         'blog_description' => $faker->text(100),
-        'image'         =>  str_replace("storage/uploads/blog\\", "", ltrim(strstr($faker->image('public/storage/uploads/blog',  640, 480, null, true), "/"),  "/"))
+        'image'         =>  str_replace("storage/uploads/blog\\", "", ltrim(strstr($faker->image('public/uploads/blog',  640, 480, null, true), "/"),  "/"))
     ];
 
     /**
