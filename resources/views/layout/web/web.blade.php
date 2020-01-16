@@ -5,8 +5,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content>
+    <meta name="author" content>
 
     <title>@yield('title')</title>
 
@@ -25,7 +25,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('homepage') }}">Blog Home</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('homepage') }}">
+                Blog Home
+            </a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -33,29 +35,61 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('homepage') }}">Homepage</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('homepage') }}">
+                            Homepage
+                        </a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('blog.index') }}">Bloglist</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('blog.index') }}">
+                            Bloglist
+                        </a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('blog.create') }}">Add
-                            Blog</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('blog.create') }}">
+                            Add
+                            Blog
+                        </a>
                     </li>
+                    @if(Auth::check())
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('profile') }}">
+                            Profile
+                        </a>
+                    </li>
+
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="dropdown" href="{{ url('/admin/logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+                            <!-- <i class="fas fa-bars"></i> -->Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+    
+                    </li>
+
+                    @else
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('register') }}">
+                            Register
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('login') }}">
+                            Login
+                        </a>
+                    </li>
+
+                    @endif
                 </ul>
             </div>
         </div>
     </nav>
 
-
-
     <!-- Portfolio Section -->
-
     @yield('content')
-
     <!-- About Section -->
-
-
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -65,8 +99,10 @@
                 <!-- Footer Location -->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">2215 John Daniel Drive
-                        <br>Clark, MO 65243</p>
+                    <p class="lead mb-0">
+                        2215 John Daniel Drive
+                        <br> Clark, MO 65243
+                    </p>
                 </div>
 
                 <!-- Footer Social Icons -->
@@ -89,8 +125,10 @@
                 <!-- Footer About Text -->
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">About Freelancer</h4>
-                    <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-                        <a href="http://startbootstrap.com">Blog</a>.</p>
+                    <p class="lead mb-0">
+                        Freelance is a free to use, MIT licensed Bootstrap theme created by
+                        <a href="http://startbootstrap.com">Blog</a> .
+                    </p>
                 </div>
 
             </div>
@@ -137,10 +175,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/cabin.png') }}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/cabin.png') }}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
@@ -178,10 +216,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/cake.png') }}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/cake.png') }}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
@@ -219,10 +257,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/circus.png') }}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/circus.png') }}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
@@ -260,10 +298,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/game.png') }}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/game.png') }}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
@@ -301,10 +339,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/safe.png') }}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{ asset('asset/web/img/portfolio/safe.png') }}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
@@ -342,10 +380,10 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="{{asset('asset/web/img/portfolio/submarine.png')}}" alt="">
+                                <img class="img-fluid rounded mb-5" src="{{asset('asset/web/img/portfolio/submarine.png')}}" alt>
                                 <!-- Portfolio Modal - Text -->
-                                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-                                    itaque. Nam.
+                                <p class="mb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                                 </p>
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
